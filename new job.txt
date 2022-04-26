@@ -1,6 +1,3 @@
-hello wold! 
-import org.w3c.dom.ls.LSOutput;
-
 public class Raiz {
     //comentario de linha
     /*comentario de bloco
