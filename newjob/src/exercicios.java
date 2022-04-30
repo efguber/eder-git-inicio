@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class exercicios {
     public static void main(String[] args) {
-        exe06();
+        exe08();
     }
     public static void exe01() {
         int varA = 10;
@@ -76,4 +76,42 @@ public class exercicios {
 
     }
 
-}
+    public static void exe07() {
+        Scanner in = new Scanner(System.in);
+        System.out.printf("Custo bruto do veiculo: R$ ");
+        double custo = in.nextDouble();
+
+        double venda = (custo*0.28);
+        System.out.printf("Distribuidor: R$%.2f", + venda);
+
+        double tributo = (custo*0.45);
+        System.out.printf("Impostos: R$%.2f", + tributo);
+
+               }
+
+    public static void exe08() {
+        Scanner in = new Scanner(System.in);
+        System.out.printf("Salario fixo mensal: R$ ");
+        double salario = in.nextDouble();
+        System.out.printf("Comissao por carro vendido: R$ ");
+        double comissao = in.nextDouble();
+        System.out.printf("Carros vendidos: ");
+        int vendidos = in.nextInt();
+
+
+        double comissvendas = (comissao*vendidos);
+        System.out.printf("Valor total das vendas: R$%.2f", + comissvendas);
+
+        double percent = (comissao*vendidos) * 0.05;
+        System.out.printf("Adicional sobre as vendas: R$%.2f", + percent);
+
+        double valorfinal = salario + comissvendas + percent;
+        System.out.printf("Salario final: R$%.2f", + valorfinal);
+
+               }
+
+
+    }
+
+
+
