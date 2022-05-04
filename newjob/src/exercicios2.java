@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class exercicios2 {
     public static void main (String[] args) {
-        exe09();
+        exe01();
     }
     public static void exe01 () {
         Scanner in = new Scanner(System.in);
@@ -97,30 +97,11 @@ public class exercicios2 {
         if (horInicio > horTermi) {
             System.out.printf("Duracao do jogo: %d", 24 - (horInicio - horTermi));
         } else {
-            System.out.printf("Duracao do jogo:%d", horTermi-horInicio);
+            System.out.printf("Duracao do jogo: %d", horTermi-horInicio);
         }
 
         }
 
-    public static void exe09 () {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Informe seu nome:");
-        String nome = in.nextLine();
-        System.out.println("Informe sua altura");
-        Double altura = in.nextDouble();
-        System.out.println("Informe seu sexo M/F:");
-        String sexo = in.nextLine();
-        in.nextLine();
-
-        double pesoideal;
-        if (sexo.equals("M")) {
-            System.out.println("Peso ideal:", (72.7 * altura)-58);
-        } else {
-            System.out.println("Peso ideal:", (62.1 * altura)-44.7);
-
-             }
-
-}
 
 }
 
