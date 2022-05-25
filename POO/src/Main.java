@@ -42,15 +42,15 @@ public class Main {
             in.nextLine();
             String aberto = in.next();
             ((XBurguer) lanche).aberto = aberto.equalsIgnoreCase("S");
-        } else if (escolha == 5) {
-            System.out.print("Borda recheada? (S/N): ");
-            in.nextLine();
-            String aberto = in.next();
-            Minipizza minipizza = (Minipizza) lanche;
-            minipizza.saborBorda = aberto.equalsIgnoreCase("S");
-            if (minipizza.borda) {
-                System.out.print("Qual o sabor da borda?");
-                minipizza.saborBorda = in.nextLine();
+        }  else if (escolha == 5) {
+        System.out.print("Com borda recheada? (S/N) ");
+        in.nextLine();
+        String aberto = in.nextLine();
+        Minipizza minipizza = ((Minipizza) lanche);
+        minipizza.bordaRecheada = aberto.equalsIgnoreCase("S");
+        if (minipizza.bordaRecheada) {
+            System.out.print("Qual o sabor da borda? ");
+            minipizza.saborBorda = in.nextLine();
             }
         }
             System.out.print("Informe o valor do(a) " + lanche.tipo + " R$: ");

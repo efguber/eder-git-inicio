@@ -1,7 +1,7 @@
 package classes;
 
 public class Minipizza extends Lanche {
-    public boolean borda;
+    public boolean bordaRecheada;
     public String saborBorda;
 
     public Minipizza() {
@@ -15,8 +15,8 @@ public class Minipizza extends Lanche {
     @Override
     public void montarComanda() {
         super.montarComanda();
-        if (this.borda) {
-            System.out.println("-PIZZA COM BORDA-");
+        if (this.bordaRecheada) {
+            System.out.println("-- COM BORDA RECHEADA: "+this.saborBorda.toUpperCase()+" --");
         }
     }
 }
