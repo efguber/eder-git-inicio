@@ -36,6 +36,10 @@ public class Decodificador {
                     codigo += "F";
                     break;
 
+                case "--.":
+                    codigo += "G";
+                    break;
+
                 case "....":
                     codigo += "H";
                     break;
