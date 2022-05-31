@@ -1,4 +1,4 @@
-package classes;
+package Lanchonete;
 
 public class Hotdog extends Lanche {
     public Hotdog() {
@@ -10,6 +10,6 @@ public class Hotdog extends Lanche {
         this.adicionarIngrediente("Queijo cheddar");
         this.adicionarIngrediente("Milho");
         this.adicionarIngrediente("Ervilha");
-        this.tipo = "Hot Dog";
+        this.settipo("Hot Dog");
     }
 }

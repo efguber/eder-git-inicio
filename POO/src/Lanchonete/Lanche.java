@@ -1,11 +1,11 @@
-package classes;
+package Lanchonete;
 
-public abstract class Lanche {
+public class Lanche {
     public String[] ingredientes = new String[10];
 
-    public double valor;
+    private double valor;
 
-    public String tipo;
+    private String tipo;
 
     public void adicionarIngrediente(String ingrediente) {
         for (int i = 0; i < 10; i++) {
@@ -18,9 +18,9 @@ public abstract class Lanche {
 
     public void montarComanda() {
         System.out.println(" ");
-        System.out.println("===" + this.tipo + "===");
-        System.out.printf("Valor: R$ %.2f\n", this.valor);
-
+        System.out.println("===" + this.getTipo() + "===");
+        System.out.printf("Valor: R$ %.2f\n", this.getvalor());
+        System.out.println(" ");
         System.out.println("-Ingredientes-");
 
         for (String ingrediente : this.ingredientes) {
@@ -29,5 +29,21 @@ public abstract class Lanche {
             }
         }
         System.out.println("--------------");
+    }
+
+    public void setValor(double v) {
+        this.valor = valor;
+    }
+
+    public double getvalor() {
+        return this.valor;
+    }
+
+    public void settipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getTipo() {
+        return this.tipo;
     }
 }
