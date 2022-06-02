@@ -1,24 +1,20 @@
-package Lanchonete;
+package classes.Lanches;
 
 public class MiniPizza extends Lanche {
 
-    public boolean bordaRecheada;
-    public String saborBorda;
     private boolean bordaRecheada;
     private String saborBorda;
     private String sabor;
-
     public MiniPizza() {
         this.adicionarIngrediente("Massa");
         this.adicionarIngrediente("Massa de tomate");
         this.adicionarIngrediente("Mozzarella");
-        this.adicionarIngrediente("Calabresa");
         this.tipo = "Mini Pizza";
     }
 
     public void adicionarSaborEIngredientes(String sabor) {
         this.setSabor(sabor);
-        switch (sabor.toUpperCase()) {
+        switch(sabor.toUpperCase()) {
             case "4 QUEIJOS":
                 this.adicionarIngrediente("Cheddar");
                 this.adicionarIngrediente("Catupiry");
@@ -44,39 +40,35 @@ public class MiniPizza extends Lanche {
     }
 
     @Override
-    public String montarComanda() {
+    public void montarComanda() {
         super.montarComanda();
-        if (this.bordaRecheada) {
-            System.out.println("-- COM BORDA RECHEADA: " + this.saborBorda.toUpperCase() + " --");
-            if (this.isBordaRecheada()) {
-                System.out.println("-- COM BORDA RECHEADA: " + this.getSaborBorda().toUpperCase() + " --");
-            }
+        if (this.isBordaRecheada()) {
+            System.out.println("-- COM BORDA RECHEADA: "+this.getSaborBorda().toUpperCase()+" --");
         }
-
-
-        public void setBordaRecheada ( boolean bordaRecheada){
-            this.bordaRecheada = bordaRecheada;
-        }
-
-        public boolean isBordaRecheada () {
-            return this.bordaRecheada;
-        }
-
-        public void setSaborBorda (String saborBorda){
-            this.saborBorda = saborBorda;
-        }
-
-        public String getSaborBorda () {
-            return this.saborBorda;
-        }
-
-        public void setSabor()(String sabor) {
-            this.sabor = sabor;
-        }
-
-        String getSabor; () {
-            return this.sabor;
-        }
-
     }
+
+    public void setBordaRecheada(boolean bordaRecheada) {
+        this.bordaRecheada = bordaRecheada;
+    }
+
+    public boolean isBordaRecheada() {
+        return this.bordaRecheada;
+    }
+
+    public void setSaborBorda(String saborBorda) {
+        this.saborBorda = saborBorda;
+    }
+
+    public String getSaborBorda() {
+        return this.saborBorda;
+    }
+
+    public void setSabor(String sabor) {
+        this.sabor = sabor;
+    }
+
+    public String getSabor() {
+        return this.sabor;
+    }
+
 }

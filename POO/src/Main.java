@@ -1,13 +1,20 @@
+
+import classes.Lanches.*;
+
 import java.util.Scanner;
+
 public class Main {
+    public static Scanner in = new Scanner(System.in);
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
+        montarLanche();
+    }
+
+    private static void montarLanche() {
         System.out.println("-MENU: Escolha uma opção-");
         System.out.println("(1) - X-Salada");
         System.out.println("(2) - X-Burguer");
         System.out.println("(3) - Misto Quente");
         System.out.println("(4) - Hot Dog");
-        System.out.println("(5) - Mini Pizza - Calabresa");
         System.out.println("(5) - Mini Pizza");
         System.out.println("(6) - Pizza");
         int escolha = in.nextInt();
@@ -39,7 +46,7 @@ public class Main {
             System.out.println("Deseja adicionais? (S/N)");
             String adiconais = in.nextLine();
             if (adiconais.equalsIgnoreCase("S")) {
-                for (int i = 0; i < 10; i++) {
+                for(int i = 0; i < 10; i++) {
                     System.out.print("Informe o adicional: ");
                     ((Sanduiche) lanche).adicionarAdicional(in.nextLine());
                     System.out.println("Deseja adicionar mais adicionais? (S/N)");
@@ -96,19 +103,14 @@ public class Main {
 
             System.out.println("Com borda recheada? (S/N)");
             String aberto = in.nextLine();
-            MiniPizza miniPizza = ((MiniPizza) lanche);
-            miniPizza.bordaRecheada = aberto.equalsIgnoreCase("S");
-            if (miniPizza.bordaRecheada) {
-                miniPizza.setBordaRecheada(aberto.equalsIgnoreCase("S"));
-                if (miniPizza.isBordaRecheada()) {
-                    System.out.println("Qual o sabor da borda?");
-                    miniPizza.saborBorda = in.nextLine();
-                    miniPizza.setSaborBorda(in.nextLine());
-                }
+            miniPizza.setBordaRecheada(aberto.equalsIgnoreCase("S"));
+            if (miniPizza.isBordaRecheada()) {
+                System.out.println("Qual o sabor da borda?");
+                miniPizza.setSaborBorda(in.nextLine());
             }
-            System.out.print("Informe o valor do(a) " + lanche.tipo + ": R$");
-            lanche.valor = in.nextDouble();
-            lanche.montarComanda();
         }
+        System.out.print("Informe o valor do(a) "+lanche.tipo+": R$");
+        lanche.valor = in.nextDouble();
+        lanche.montarComanda();
     }
 }

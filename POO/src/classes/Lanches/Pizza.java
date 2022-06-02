@@ -1,4 +1,4 @@
-package Lanchonete;
+package classes.Lanches;
 
 public class Pizza extends MiniPizza{
     private String tamanho;

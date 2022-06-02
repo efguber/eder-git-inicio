@@ -1,8 +1,11 @@
-package Lanchonete;
+package classes.Lanches;
+
 public abstract class Lanche {
     public String[] ingredientes = new String[10];
     public double valor;
+
     public String tipo;
+
     public void adicionarIngrediente(String ingrediente) {
         for (int i = 0; i < 10; i++) {
             if(this.ingredientes[i] == null) {
@@ -13,7 +16,6 @@ public abstract class Lanche {
     }
 
     public void montarComanda() {
-        System.out.println("===="+this.tipo+"====");
         if (this instanceof MiniPizza) {
             System.out.println("===="+this.tipo+" - "+((MiniPizza)this).getSabor()+"====");
         } else {
