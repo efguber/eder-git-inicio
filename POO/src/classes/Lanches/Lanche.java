@@ -15,7 +15,7 @@ public abstract class Lanche {
     }
 
     public double getValor() {
-        return valor;
+        return this.valor;
     }
 
     public void setValor(double valor) {

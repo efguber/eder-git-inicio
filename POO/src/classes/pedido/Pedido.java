@@ -8,7 +8,7 @@ public class Pedido {
     private Lanche[] lanches = new Lanche[10];
 
     public void imprimirComanda() {
-        for (Lanche l : lanches) {
+        for (Lanche l : this.getLanches()) {
             if (l != null) {
                 if (l instanceof MiniPizza) {
                     MiniPizza mp = (MiniPizza) l;
@@ -27,21 +27,21 @@ public class Pedido {
                         System.out.println("-- LANCHE ABERTO --");
                     }
                 }
-            }
-            System.out.printf("Valor: R$%.2f\n", l.getValor());
-            System.out.println("-INGREDIENTES-");
-            for (String ingrediente : l.getIngredientes()) {
-                if (ingrediente != null) {
-                    System.out.println(ingrediente);
+                System.out.printf("Valor: R$%.2f\n", l.getValor());
+                System.out.println("-INGREDIENTES-");
+                for (String ingrediente : l.getIngredientes()) {
+                    if (ingrediente != null) {
+                        System.out.println(ingrediente);
+                    }
                 }
-            }
-            if (l instanceof Sanduiche) {
-                Sanduiche s = (Sanduiche) l;
-                if (s.getAdicionais()[0] != null) {
-                    System.out.println("-ADICIONAIS-");
-                    for (String adicional : s.getAdicionais()) {
-                        if (adicional != null) {
-                            System.out.println(adicional);
+                if (l instanceof Sanduiche) {
+                    Sanduiche s = (Sanduiche) l;
+                    if (s.getAdicionais()[0] != null) {
+                        System.out.println("-ADICIONAIS-");
+                        for (String adicional : s.getAdicionais()) {
+                            if (adicional != null) {
+                                System.out.println(adicional);
+                            }
                         }
                     }
                 }
