@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     public static Scanner in = new Scanner(System.in);
+
     public static void main(String[] args) {
         montarLanche();
     }
@@ -46,7 +47,7 @@ public class Main {
             System.out.println("Deseja adicionais? (S/N)");
             String adiconais = in.nextLine();
             if (adiconais.equalsIgnoreCase("S")) {
-                for(int i = 0; i < 10; i++) {
+                for (int i = 0; i < 10; i++) {
                     System.out.print("Informe o adicional: ");
                     ((Sanduiche) lanche).adicionarAdicional(in.nextLine());
                     System.out.println("Deseja adicionar mais adicionais? (S/N)");
@@ -59,7 +60,7 @@ public class Main {
             if (lanche instanceof XBurguer) {
                 System.out.println("Lanche aberto? (S/N)");
                 String aberto = in.nextLine();
-                ((XBurguer) lanche).aberto = aberto.equalsIgnoreCase("S");
+                ((XBurguer) lanche).setAberto(aberto.equalsIgnoreCase("S"));
             }
         } else {
             System.out.println("Escolha o sabor da pizza:");
@@ -109,8 +110,8 @@ public class Main {
                 miniPizza.setSaborBorda(in.nextLine());
             }
         }
-        System.out.print("Informe o valor do(a) "+lanche.tipo+": R$");
-        lanche.valor = in.nextDouble();
-        lanche.montarComanda();
+        System.out.print("Informe o valor do(a) " + lanche.getTipo() + ": R$");
+        lanche.setValor(in.nextDouble());
+
     }
 }
