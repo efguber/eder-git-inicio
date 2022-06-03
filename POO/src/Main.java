@@ -1,15 +1,31 @@
 
 import classes.Lanches.*;
+import classes.cliente.Cliente;
 
 import java.util.Scanner;
 
 public class Main {
     public static Scanner in = new Scanner(System.in);
+
     public static void main(String[] args) {
-        montarLanche();
+        Cliente cl = new Cliente();
+        System.out.println("Insira o nome do cliente: ");
+        cl.setNome(in.nextLine());
+        for (int i = 0; i < 10; i++) {
+            cl.getPedido().adicionarLanche(montarLanche());
+            if (i == 9) {
+                break;
+            }
+            System.out.println("Deseja mais um lanche? (S/N)");
+            if (in.nextLine().equalsIgnoreCase("N")) {
+                break;
+            }
+        }
+        System.out.println("Cliente: " + cl.getNome());
+        cl.getPedido().imprimirComanda();
     }
 
-    private static void montarLanche() {
+    private static Lanche montarLanche() {
         System.out.println("-MENU: Escolha uma opção-");
         System.out.println("(1) - X-Salada");
         System.out.println("(2) - X-Burguer");
@@ -46,7 +62,7 @@ public class Main {
             System.out.println("Deseja adicionais? (S/N)");
             String adiconais = in.nextLine();
             if (adiconais.equalsIgnoreCase("S")) {
-                for(int i = 0; i < 10; i++) {
+                for (int i = 0; i < 10; i++) {
                     System.out.print("Informe o adicional: ");
                     ((Sanduiche) lanche).adicionarAdicional(in.nextLine());
                     System.out.println("Deseja adicionar mais adicionais? (S/N)");
@@ -59,7 +75,7 @@ public class Main {
             if (lanche instanceof XBurguer) {
                 System.out.println("Lanche aberto? (S/N)");
                 String aberto = in.nextLine();
-                ((XBurguer) lanche).aberto = aberto.equalsIgnoreCase("S");
+                ((XBurguer) lanche).setAberto(aberto.equalsIgnoreCase("S"));
             }
         } else {
             System.out.println("Escolha o sabor da pizza:");
@@ -109,8 +125,9 @@ public class Main {
                 miniPizza.setSaborBorda(in.nextLine());
             }
         }
-        System.out.print("Informe o valor do(a) "+lanche.tipo+": R$");
-        lanche.valor = in.nextDouble();
-        lanche.montarComanda();
+        System.out.print("Informe o valor do(a) " + lanche.getTipo() + ": R$");
+        lanche.setValor(in.nextDouble());
+        in.nextLine();
+        return lanche;
     }
 }

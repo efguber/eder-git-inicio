@@ -11,7 +11,6 @@ public class HotDog extends Sanduiche{
         this.adicionarIngrediente("Queijo Cheddar");
         this.adicionarIngrediente("Milho");
         this.adicionarIngrediente("Ervilha");
-        this.tipo = "Hot Dog";
+        this.setTipo("Hot Dog");
     }
-
 }
