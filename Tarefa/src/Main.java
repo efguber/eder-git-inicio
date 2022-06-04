@@ -1,10 +1,11 @@
+import classes.Tarefa;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         Tarefa t = new Tarefa();
-        //System.out.println(t.getUuid());
 
         System.out.print("Informe o nome da tarefa: ");
         t.setNome(in.nextLine());
@@ -16,4 +17,6 @@ public class Main {
         System.out.println(t.getDescricao());
 
     }
+
 }
+

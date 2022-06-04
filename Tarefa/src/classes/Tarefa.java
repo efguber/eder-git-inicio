@@ -1,3 +1,5 @@
+package classes;
+
 import java.util.UUID;
 
 public class Tarefa {
@@ -5,7 +7,10 @@ public class Tarefa {
     private String nome;
     private String descricao;
     private boolean completa;
+
     private int ordem;
+
+
 
     public Tarefa() {
         this.setUuid(UUID.randomUUID().toString());
