@@ -7,17 +7,17 @@ public class ChecklistItem {
     private String nome;
     private String descricao;
     private boolean completa;
-    private int ordem;
 
 
-    //public Tarefa () {
-     //   this.setUuid(UUID.randomUUID().toString());
-
+    public ChecklistItem() {
+        this.setUuid(UUID.randomUUID().toString());
     }
 
     public void completar() {
-        setCompleta(true);
+        this.setCompleta(true);
     }
+
+    // Getter & Setter
 
     public void setUuid(String uuid) {
         this.uuid = uuid;
@@ -35,27 +35,20 @@ public class ChecklistItem {
         return this.nome;
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
+
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
-    public String getDescricao() {
-        return this.descricao;
+    public boolean isCompleta() {
+        return completa;
     }
 
     public void setCompleta(boolean completa) {
         this.completa = completa;
     }
 
-    public boolean isCompleta(String s) {
-        return this.completa;
-    }
-
-    public void setOrdem(int ordem) {
-        this.ordem = ordem;
-    }
-
-    public int getordem() {
-        return this.ordem;
-    }
 }
