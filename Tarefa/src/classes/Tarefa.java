@@ -11,13 +11,14 @@ public class Tarefa {
 
     private ChecklistItem[] checklist;
 
-    public Tarefa() { this.setUuid(UUID.randomUUID().toString());
+    public Tarefa() {
+        this.setUuid(UUID.randomUUID().toString());
     }
 
     public void completar() {
         this.setCompleta(true);
-        for (ChecklistItem item : this.getChecklist()){
-            if (item != null){
+        for (ChecklistItem item : this.getChecklist()) {
+            if (item != null) {
                 item.completar();
             }
         }
