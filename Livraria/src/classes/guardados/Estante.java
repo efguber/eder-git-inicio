@@ -3,10 +3,8 @@ package classes.guardados;
 import classes.itens.Item;
 
 public class Estante {
-
     private int capMaxima;
     private Item[] itens;
-
 
     public Estante(int capMaxima) {
         setCapMaxima(capMaxima);
@@ -15,14 +13,12 @@ public class Estante {
     }
 
     public boolean estanteCheia() {
-
-
         //TODO
         return false;
     }
 
-    public int quantidadedeItens() {
-      //TODO
+    public int quantidadeItens() {
+        //TODO
         return 0;
     }
 
@@ -31,13 +27,9 @@ public class Estante {
         return null;
     }
 
+
     public boolean adicionarItem(Item item) {
-        for (int i = 0; i < this.getItens().length; i++) {
-            if (this.getItens()[i] == null) {
-                this.getItens()[i] = item;
-                return true;
-            }
-        }
+        //TODO
         return false;
     }
 
@@ -46,8 +38,7 @@ public class Estante {
         return null;
     }
 
-
-    // GETTER & SETTER abaixo
+    // GETTERS & SETTERS
 
     public int getCapMaxima() {
         return capMaxima;
