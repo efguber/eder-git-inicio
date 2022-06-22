@@ -34,7 +34,7 @@ public class Estante {
         return null;
     }
 
-    public boolean adicionarItem() {
+    public boolean adicionarItem(Item i) {
         for (int i = 0; i < this.getItens().length; i++) { //para ver os espaços null e ocupa-los com novos itens.
             if (this.getItens()[i] == null) {
                 Item item = null;

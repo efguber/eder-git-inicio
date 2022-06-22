@@ -1,9 +1,6 @@
 package classes.Lanches;
 
-
-
-
-public class XBurguer extends Sanduiche{
+public class XBurguer extends Sanduiche {
 
     public boolean isAberto() {
         return aberto;

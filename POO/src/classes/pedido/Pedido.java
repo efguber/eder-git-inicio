@@ -3,9 +3,11 @@ package classes.pedido;
 
 import classes.Lanches.*;
 
+import java.util.ArrayList;
+
 public class Pedido {
 
-    private Lanche[] lanches = new Lanche[10];
+    private ArrayList<Lanche> lanches = new ArrayList<>();
 
     public void imprimirComanda() {
         for (Lanche l : this.getLanches()) {
@@ -30,13 +32,11 @@ public class Pedido {
                 System.out.printf("Valor: R$%.2f\n", l.getValor());
                 System.out.println("-INGREDIENTES-");
                 for (String ingrediente : l.getIngredientes()) {
-                    if (ingrediente != null) {
-                        System.out.println(ingrediente);
-                    }
+
                 }
                 if (l instanceof Sanduiche) {
                     Sanduiche s = (Sanduiche) l;
-                    if (s.getAdicionais()[0] != null) {
+                    if (s.getAdicionais().get(0) != null) {
                         System.out.println("-ADICIONAIS-");
                         for (String adicional : s.getAdicionais()) {
                             if (adicional != null) {
@@ -55,23 +55,15 @@ public class Pedido {
     public double calcularValorTotal() {
         double vlrTotal = 0;
         for (Lanche l : this.getLanches()) {
-            if (l != null) {
-                vlrTotal += l.getValor();
-            }
         }
         return vlrTotal;
     }
 
     public void adicionarLanche(Lanche lanche) {
-        for (int i = 0; i < 10; i++) {
-            if (this.lanches[i] == null) {
-                this.lanches[i] = lanche;
-                break;
-            }
-        }
+        this.lanches.add(lanche);
     }
 
-    public Lanche[] getLanches() {
+    public ArrayList<Lanche> getLanches() {
         return this.lanches;
     }
 }

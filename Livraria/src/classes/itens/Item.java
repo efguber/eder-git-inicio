@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import classes.avaliacao.Avaliacao;
 
-public abstract class Item {
+public class Item {
 
     private String titulo;
     private String genero;

@@ -1,23 +1,16 @@
 package classes.Lanches;
 
+import java.util.ArrayList;
+
 public abstract class Sanduiche extends Lanche {
+    public ArrayList<String> adicionais = new ArrayList<>();
 
-    public String[] adicionais = new String[10];
-
-    public String[] getAdicionais() {
+    public ArrayList<String> getAdicionais() {
         return adicionais;
     }
 
-    public void setAdicionais(String[] adicionais) {
-        this.adicionais = adicionais;
-    }
-
     public void adicionarAdicional(String adicional) {
-        for (int i = 0; i < 10; i++) {
-            if (this.adicionais[i] == null) {
-                this.adicionais[i] = adicional;
-                break;
-            }
-        }
+        this.adicionais.add(adicional);
+
     }
 }
