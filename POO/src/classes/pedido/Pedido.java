@@ -38,11 +38,10 @@ public class Pedido {
                     Sanduiche s = (Sanduiche) l;
                     if (s.getAdicionais().get(0) != null) {
                         System.out.println("-ADICIONAIS-");
-                        for (String adicional : s.getAdicionais()) {
+                        for (String adicional : s.getAdicionais())
                             if (adicional != null) {
                                 System.out.println(adicional);
                             }
-                        }
                     }
                 }
             }
