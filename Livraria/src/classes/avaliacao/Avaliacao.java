@@ -1,13 +1,11 @@
 package classes.avaliacao;
 
 public class Avaliacao {
-
     private double rating;
     private String nome;
     private String feedback;
 
-
-    // GETTER & SETTER abaixo
+    // GETTERS & SETTERS
 
     public double getRating() {
         return rating;
@@ -32,5 +30,4 @@ public class Avaliacao {
     public void setFeedback(String feedback) {
         this.feedback = feedback;
     }
-
 }

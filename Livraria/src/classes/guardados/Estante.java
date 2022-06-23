@@ -9,33 +9,46 @@ public class Estante {
     public Estante(int capMaxima) {
         setCapMaxima(capMaxima);
         setItens(new Item[capMaxima]);
-        //TODO
     }
 
     public boolean estanteCheia() {
-        //TODO
-        return false;
+        return this.quantidadeItens() == this.getCapMaxima(); //metodo de verificação boobleano enxuto. informando de forma simples.
     }
 
     public int quantidadeItens() {
-        //TODO
-        return 0;
+        int contador = 0; //variante criada para contar os itens checados.
+        for (Item i : this.getItens()) { //esta configuração usa-se quando pretende-se percorrer todas as posições matriz (forma simplificada).
+            if (i != null) {
+                contador++;
+            }
+        }
+        return contador;//retorna ao ponto de parada para somar os valores.
     }
 
     public Item buscarItem(String titulo) {
-        //TODO
+        for (Item i : this.getItens()) {
+            if (i != null && i.getTitulo().toLowerCase().contains(titulo.toLowerCase())) { //para igualar/padronizar todas as entradas em minusculas
+                return i;
+            }
+        }
         return null;
     }
 
-
-    public boolean adicionarItem(Item item) {
-        //TODO
+    public boolean adicionarItem(Item i) {
+        for (int i = 0; i < this.getItens().length; i++) { //para ver os espaços null e ocupa-los com novos itens.
+            if (this.getItens()[i] == null) {
+                Item item = null;
+                this.getItens()[i] = item;
+                return true;
+            }
+        }
         return false;
     }
 
-    public Item removerItem(int posicao) {
-        //TODO
-        return null;
+    public Item removerItem(int posicao) { //para remover itens guardando o valor da posição original na variavel "i".
+        Item i = this.getItens()[posicao];
+        this.getItens()[posicao] = null;
+        return i;
     }
 
     // GETTERS & SETTERS
