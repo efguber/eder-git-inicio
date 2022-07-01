@@ -1,5 +1,6 @@
 package classes.itens;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import classes.avaliacao.Avaliacao;
@@ -9,9 +10,7 @@ public class Item {
     private String titulo;
     private String genero;
     private double valor;
-
-
-    private Avaliacao[] avaliacoes = new Avaliacao[30];
+    private ArrayList<Avaliacao> avaliacoes = new ArrayList<>();
 
 
     public void avaliar() {
@@ -24,9 +23,9 @@ public class Item {
         in.nextLine();
         System.out.print("Informe algum feedback (opcional): ");
         a.setFeedback(in.nextLine());
-        for (int i = 0; i < getAvaliacoes().length; i++) {
-            if (getAvaliacoes()[i] == null) {
-                getAvaliacoes()[i] = a;
+        for (int i = 0; i < getAvaliacoes().size(); i++) {
+            if (getAvaliacoes().get(i) == null) {
+                getAvaliacoes().set(i, a);
                 break;
             }
         }
@@ -71,11 +70,13 @@ public class Item {
         this.valor = valor;
     }
 
-    public Avaliacao[] getAvaliacoes() {
+    public ArrayList<Avaliacao> getAvaliacoes() {
         return avaliacoes;
     }
 
-    public void setAvaliacoes(Avaliacao[] avaliacoes) {
+    public void setAvaliacoes(ArrayList<Avaliacao> avaliacoes) {
         this.avaliacoes = avaliacoes;
     }
+
+
 }

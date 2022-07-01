@@ -4,7 +4,6 @@ public class Voo {
     public String[][] codificacaoAssentos;
     public boolean[][] ocupacaoAssentos;
 
-
     public Voo(int linhas, int cadeirasPorLinha) {
         this.ocupacaoAssentos = new boolean[linhas][cadeirasPorLinha];
         this.codificacaoAssentos = new String[linhas][cadeirasPorLinha];

@@ -2,7 +2,7 @@ package classes;
 
 import java.util.ArrayList;
 
-public class Aviao implements MeioTransporte {
+public class Aviao implements MeioTransporte{
     private ArrayList<AssentoVoo> assentos = new ArrayList<>();
 
     public ArrayList<AssentoVoo> getAssentos() {
@@ -12,6 +12,28 @@ public class Aviao implements MeioTransporte {
     public void setAssentos(ArrayList<AssentoVoo> assentos) {
         this.assentos = assentos;
     }
+
+    public Aviao(int linhasCadeirasLuxo, int linhasCadeirasEconomicas) {
+        String codigoAssentos = "ABCD";
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < linhasCadeirasLuxo; j++) {
+                AssentoVoo a = new AssentoVoo();
+                a.setCodigo(String.valueOf(codigoAssentos.charAt(i))+j);
+                a.setClasse(ClasseAssentoVoo.LUXO);
+                assentos.add(a);
+            }
+        }
+        codigoAssentos = "ABCDEF";
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < linhasCadeirasEconomicas; j++) {
+                AssentoVoo a = new AssentoVoo();
+                a.setCodigo(String.valueOf(codigoAssentos.charAt(i))+j);
+                a.setClasse(ClasseAssentoVoo.ECONOMICA);
+                assentos.add(a);
+            }
+        }
+    }
+
 
     @Override
     public boolean verificaOcupacao(String assento) {
@@ -25,23 +47,30 @@ public class Aviao implements MeioTransporte {
 
     @Override
     public int quantidadeLivre() {
-        int AssentosLivres = 0;
+        int livres = 0;
         for (AssentoVoo a : this.assentos) {
             if (!a.isOcupado()) {
-                AssentosLivres++;
+                livres++;
             }
         }
-        return AssentosLivres;
+        return livres;
     }
-
 
     @Override
     public void mostrarAssentos() {
-
+        ArrayList<AssentoVoo> luxo = new ArrayList<>();
+        ArrayList<AssentoVoo> economica = new ArrayList<>();
+        for (AssentoVoo a : this.assentos) {
+            if (ClasseAssentoVoo.LUXO.equals(a.getClasse())) {
+                luxo.add(a);
+            } else {
+                economica.add(a);
+            }
+        }
     }
 
     @Override
-    public Assento getAssento(String assento) { //para ver se ha assentos livres
+    public Assento getAssento(String assento) {
         for (AssentoVoo a : this.assentos) {
             if (a.getCodigo().equalsIgnoreCase(assento)) {
                 return a;
@@ -50,14 +79,13 @@ public class Aviao implements MeioTransporte {
         return null;
     }
 
-    //abaixo para ver se há acentos livre por classe
-    public Assento getAssento(String assento, String classe) { //sobreposição de comportamento de um metodo sem estar subscrevendo ele
-        for (AssentoVoo a : this.assentos) { //procurar os assentos na lista
-            if (a.getCodigo().equalsIgnoreCase(assento)  //se o codigo do assento for igual ao parametro
-                    && a.getClasse().equalsIgnoreCase(classe)) {
-                return a; //retorna o assento
+    public Assento getAssento(String assento, ClasseAssentoVoo classe) {
+        for (AssentoVoo a : this.assentos) {
+            if (a.getCodigo().equalsIgnoreCase(assento)
+                    && a.getClasse().equals(classe)) {
+                return a;
             }
         }
-        return null; //caso a pessoa digite o numero não existente essa função fara voltar o sistema
+        return null;
     }
 }
