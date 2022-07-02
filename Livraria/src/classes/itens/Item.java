@@ -1,50 +1,39 @@
 package classes.itens;
 
+import classes.avaliacao.Avaliacao;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import classes.avaliacao.Avaliacao;
-
-public class Item {
-
+public abstract class Item {
     private String titulo;
     private String genero;
     private double valor;
     private ArrayList<Avaliacao> avaliacoes = new ArrayList<>();
-
 
     public void avaliar() {
         Scanner in = new Scanner(System.in);
         Avaliacao a = new Avaliacao();
         System.out.print("Informe o nome do avaliador: ");
         a.setNome(in.nextLine());
-        System.out.print("Informe uma nota de 0 a 10: ");
+        System.out.println("Informe uma nota de 0 a 10: ");
         a.setRating(in.nextDouble());
         in.nextLine();
         System.out.print("Informe algum feedback (opcional): ");
         a.setFeedback(in.nextLine());
-        for (int i = 0; i < getAvaliacoes().size(); i++) {
-            if (getAvaliacoes().get(i) == null) {
-                getAvaliacoes().set(i, a);
-                break;
-            }
-        }
+        this.avaliacoes.add(a);
     }
 
     public double getTotalRating() {
-        double soma = 0;
-        int contador = 0;
-        for (Avaliacao a : getAvaliacoes()) {
-            if (a != null) {
-                soma += a.getRating();
-                contador++;
-            }
-        }
-        return soma / contador;
+        Double valor = this.avaliacoes.stream().mapToDouble(Avaliacao::getRating).sum()
+                /this.avaliacoes.size();
+        return valor.isNaN() ? 0 : valor;
     }
 
+    public abstract void montarDetalhes(Scanner in);
+    public abstract void mostrarDetalhes();
 
-    // GETTER & SETTER abaixo
+    // GETTERS & SETTERS
 
     public String getTitulo() {
         return titulo;
@@ -77,6 +66,4 @@ public class Item {
     public void setAvaliacoes(ArrayList<Avaliacao> avaliacoes) {
         this.avaliacoes = avaliacoes;
     }
-
-
 }
