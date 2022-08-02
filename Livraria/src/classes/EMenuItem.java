@@ -1,6 +1,6 @@
 package classes;
 
-public enum EMenuItem implements classes.IMenu {
+public enum EMenuItem implements IMenu {
     VOLTAR(0, "Voltar"),
     AVALIAR_ITEM(1, "Avaliar item"),
     VER_AVALIACOES(2, "Ver avaliações"),

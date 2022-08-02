@@ -2,6 +2,7 @@
 import classes.Lanches.*;
 import classes.cliente.Cliente;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -30,30 +31,24 @@ public class Main {
         System.out.println("(4) - Hot Dog");
         System.out.println("(5) - Mini Pizza");
         System.out.println("(6) - Pizza");
-        int escolha = in.nextInt();
-        in.nextLine();
+        int escolha = 0;
+        try {
+            escolha = in.nextInt();
+        } catch (InputMismatchException e){
+            System.out.println("Escolha um lanche valido!");
+        } finally {
+            in.nextLine();
+        }
+
         Lanche lanche = null;
         switch (escolha) {
-            case 1:
-                lanche = new XSalada();
-                break;
-            case 2:
-                lanche = new XBurguer();
-                break;
-            case 3:
-                lanche = new MistoQuente();
-                break;
-            case 4:
-                lanche = new HotDog();
-                break;
-            case 5:
-                lanche = new MiniPizza();
-                break;
-            case 6:
-                lanche = new Pizza();
-                break;
-            default:
-                System.err.println("Escolha uma opção válida!");
+            case 1 -> lanche = new XSalada();
+            case 2 -> lanche = new XBurguer();
+            case 3 -> lanche = new MistoQuente();
+            case 4 -> lanche = new HotDog();
+            case 5 -> lanche = new MiniPizza();
+            case 6 -> lanche = new Pizza();
+            default -> System.err.println("Escolha uma opção válida!");
         }
         if (lanche instanceof Sanduiche) {
             System.out.println("Deseja adicionais? (S/N)");
@@ -85,23 +80,12 @@ public class Main {
             in.nextLine();
             MiniPizza miniPizza = ((MiniPizza) lanche);
             switch (sabor) {
-                case 1:
-                    miniPizza.adicionarSaborEIngredientes("4 queijos");
-                    break;
-                case 2:
-                    miniPizza.adicionarSaborEIngredientes("calabresa");
-                    break;
-                case 3:
-                    miniPizza.adicionarSaborEIngredientes("frango c/ catupiry");
-                    break;
-                case 4:
-                    miniPizza.adicionarSaborEIngredientes("marguerita");
-                    break;
-                case 5:
-                    miniPizza.adicionarSaborEIngredientes("portuguesa");
-                    break;
-                default:
-                    System.err.println("Escolha um sabor válido");
+                case 1 -> miniPizza.adicionarSaborEIngredientes("4 queijos");
+                case 2 -> miniPizza.adicionarSaborEIngredientes("calabresa");
+                case 3 -> miniPizza.adicionarSaborEIngredientes("frango c/ catupiry");
+                case 4 -> miniPizza.adicionarSaborEIngredientes("marguerita");
+                case 5 -> miniPizza.adicionarSaborEIngredientes("portuguesa");
+                default -> System.err.println("Escolha um sabor válido");
             }
 
             if (lanche instanceof Pizza) {

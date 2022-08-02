@@ -1,9 +1,24 @@
 package classes.avaliacao;
 
+
+import java.time.LocalDateTime;
+
 public class Avaliacao {
     private double rating;
     private String nome;
     private String feedback;
+
+
+    public LocalDateTime getDataAvaliacao() {
+        return dataAvaliacao;
+    }
+
+    public void setDataAvaliacao(LocalDateTime dataAvaliacao) {
+        this.dataAvaliacao = dataAvaliacao;
+    }
+
+    private LocalDateTime dataAvaliacao = LocalDateTime.now();
+
 
     // GETTERS & SETTERS
 
@@ -30,4 +45,6 @@ public class Avaliacao {
     public void setFeedback(String feedback) {
         this.feedback = feedback;
     }
+
+
 }

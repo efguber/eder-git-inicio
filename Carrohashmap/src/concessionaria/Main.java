@@ -20,21 +20,11 @@ public class Main {
             int escolha = in.nextInt();
             in.nextLine();
             switch (escolha) {
-                case 0:
-                    executa = false;
-                    break;
-                case 1:
-                    mostrarListaCarros();
-                    break;
-                case 2:
-                    adicionarCarro();
-                    break;
-                case 3:
-                    venderCarro();
-                    break;
-                default:
-                    System.out.println("Selecione uma opção válida!\n");
-                    break;
+                case 0 -> executa = false;
+                case 1 -> mostrarListaCarros();
+                case 2 -> adicionarCarro();
+                case 3 -> venderCarro();
+                default -> System.out.println("Selecione uma opção válida!\n");
             }
         }
     }

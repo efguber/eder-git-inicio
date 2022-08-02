@@ -49,5 +49,6 @@ public class DVD extends Item{
         System.out.println("Diretor: "+this.getDiretor());
         System.out.println("Ano de lançamento: "+this.getAnoLancamento());
         System.out.println("Duração: "+this.getDuracao());
+
     }
 }
