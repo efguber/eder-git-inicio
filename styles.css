@@ -1,0 +1,59 @@
+body {
+  background-color: #f1f1f1;
+}
+
+/* p {
+  color: red;
+  margin-top: 0;
+}
+#par-gr {
+  color: green;
+}
+.white-txt {
+  color: blue!important;
+} */
+
+table {
+  border: 1px solid black;
+  width: 100%;
+  border-spacing: 0;
+}
+
+th {
+  text-align: start;
+  background-color: #b3b3b3;
+  padding: 8px 4px;
+}
+
+* {
+  font-family: 'Poppins';
+} 
+
+@keyframes cores {
+  0%{background-color: blue;}
+  10%{background-color: black;}
+  20%{background-color: brown;}
+  30%{background-color: darkcyan;}
+  40%{background-color: lightyellow;}
+  50%{background-color: rgb(249, 255, 192);}
+  60%{background-color: darkmagenta;}
+  70%{background-color: dimgray;}
+  80%{background-color: orange;}
+  70%{background-color: rgb(255, 0, 43);}
+  100%{background-color: green;}
+}
+
+body {
+  align-items: center;
+  text-align: center;
+  animation-name: cores;
+  animation-duration: 0.3s;
+  animation-iteration-count: infinite;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+
+
