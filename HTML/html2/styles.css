@@ -1,0 +1,176 @@
+html, body {
+    background-color: #f1f1f1;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-40 {
+    width: 40%;
+}
+
+.edit-cell {
+    text-align: center;
+   
+}
+
+.edit-cell button {
+    display: inline-block;
+}
+
+.edit-cell a, ul.navlist li a {
+    text-decoration: none;
+    background-color: rgb(52, 100, 212);
+    padding: 4px 8px;
+    margin: 2px 0;
+    display: inline-block;
+    color: white;
+    border-radius: 4px;
+}
+
+.edit-cell a:hover, ul.navlist li a:hover {
+    background-color: rgb(27, 82, 210);
+}
+
+ul.navlist li a:hover {
+    animation: boxShadow 0.5s infinite 0s;
+}
+
+table.contained {
+    margin: 0 15%;
+    width: 70%;
+}
+
+table {
+    /* border: 1px solid black; */
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: start;
+    background-color: #b3b3b3;
+    padding: 8px 4px;
+}
+
+tr {
+    border-bottom: 1px solid #b3b3b3;
+}
+
+tfoot tr {
+    border-bottom: 0;
+}
+
+tfoot tr.sum td {
+    text-align: right;
+}
+
+small {
+    font-size: 12px;
+}
+
+ul.navlist {
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+}
+
+ul.navlist li {
+    display: inline;
+}
+
+.text-center {
+    text-align: center;
+}
+
+div#titulos .header {
+    margin-bottom: 24px;
+    font-size: 3em;
+}
+
+.card {
+    background-color: #f8f8f8;
+    box-shadow: 0px 8px 20px -8px #000000;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 32px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn{
+    border: 0;
+    background-color: transparent;
+    padding: 4px 8px;
+    cursor: pointer;
+    border-radius: 8px;    
+}
+
+.btn.btn-success{
+    background-color: rgb(75, 191, 75);
+}
+
+.btn.btn-success:hover{
+    background-color: rgb(100, 220, 100);
+}
+
+.btn.btn-success:active{
+    background-color: rgb(54, 153, 54);
+}
+
+.btn.btn-warning {
+    background-color: rgb(228, 209, 62);  
+  }
+
+.btn.btn-warning:hover {
+    background-color: rgb(228, 209, 62);  
+  }
+  
+.btn.btn-warning:active {
+  background-color: rgb(179, 163, 43);  
+}
+.btn.btn-danger {
+    background-color: rgb(228, 77, 77);  
+  }
+
+  .btn.btn-danger:hover {
+    background-color: rgb(247, 77, 77);  
+  }
+
+.btn.btn-danger:active {
+    background-color: rgb(179, 43, 43);  
+  }
+  
+
+* {
+    font-family: 'Poppins';
+}
+
+@keyframes boxShadow {
+    0%{box-shadow: 0px 0px 20px 10px blue;}
+    10%{box-shadow: 0px 0px 20px 10px black;}
+    20%{box-shadow: 0px 0px 20px 10px brown;}
+    30%{box-shadow: 0px 0px 20px 10px darkcyan;}
+    40%{box-shadow: 0px 0px 20px 10px lightyellow;}
+    50%{box-shadow: 0px 0px 20px 10px rgb(249, 255, 192);}
+    60%{box-shadow: 0px 0px 20px 10px darkmagenta;}
+    70%{box-shadow: 0px 0px 20px 10px dimgray;}
+    80%{box-shadow: 0px 0px 20px 10px orange;}
+    70%{box-shadow: 0px 0px 20px 10px rgb(255, 0, 43);}
+    100%{box-shadow: 0px 0px 20px 10px green;}
+}
+
+@media only screen and (max-width: 600px) {
+    /* html, body {
+        background-color: darkseagreen;
+    } */
+    ul.navlist {
+        margin: 0 48px;
+    }
+
+    ul.navlist li a {
+        display: block;
+    }
+}
