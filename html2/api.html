@@ -24,7 +24,7 @@
 </body>
 </html> -->
 
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="pt-br">
  <head>
         <meta charset="UTF-8">
@@ -49,7 +49,40 @@
     <ul id="charlist"></ul>
         
 </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+ <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+        <link rel="stylesheet" href="styles.css"> 
+        <script type="text/javascript">
+        function loadImg() {
+        let req = new XMLHttpRequest();
+        req.open("GET", "https://cataas.com/cat?json=true", true);
+        req.onload = () => {
+            let img = document.getElementsByTagName("img")[0].src = "https://cataas.com" +
+            JSON.parse(req.responseText).url;
+            img.onload = () => {
+                document.getElementsByTagName("button")[0].disabled = false;
+            } 
+          
+            }
+            document.getElementsByTagName("button")[0].disabled = true;
+            req.send(null);
+        }
+
+    </script>
+</head>
+<body>
+    <div class="veryCats"> 
+    <div id="#cats"></div>
+    <button class= "btn_Gatos" onclick="loadImg()">Get CAT</button>
+    </div>
+</body>
 </html>
-
-
-
