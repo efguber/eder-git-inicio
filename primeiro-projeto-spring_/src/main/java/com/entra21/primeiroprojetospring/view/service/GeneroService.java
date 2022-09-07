@@ -13,13 +13,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class FranquiaService {
+public class GeneroService {
 
     @Autowired
-    private FranquiaRepository franquiaRepository;
+    private FranquiaRepository GeneroRepository;
 
     public List<FranquiaDTO> getAll() {
-        return franquiaRepository.findAll().stream().map(fr -> {
+        return GeneroRepository.findAll().stream().map(fr -> {
             FranquiaDTO dto = new FranquiaDTO();
             dto.setId(fr.getId());
             dto.setNome(fr.getNome());
@@ -30,11 +30,11 @@ public class FranquiaService {
     public void save(FranquiaPayloadDTO input) {
         FranquiaEntity newEntity = new FranquiaEntity();
         newEntity.setNome(input.getNome());
-        franquiaRepository.save(newEntity);
+        GeneroRepository.save(newEntity);
     }
 
     public FranquiaDTO getById(Long id) {
-        FranquiaEntity e = franquiaRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Franquia não encontrada!"));
+        FranquiaEntity e = GeneroRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Genero não encontrada!"));
         FranquiaDTO dto = new FranquiaDTO();
         dto.setId(e.getId());
         dto.setNome(e.getNome());
@@ -42,13 +42,13 @@ public class FranquiaService {
     }
 
     public void delete(Long id) {
-        franquiaRepository.deleteById(id);
+        GeneroRepository.deleteById(id);
     }
 
     public FranquiaDTO update(Long id, String novoNome) {
-        FranquiaEntity e = franquiaRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Franquia não encontrada!"));
+        FranquiaEntity e = GeneroRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Genero não encontrada!"));
         e.setNome(novoNome);
-        e = franquiaRepository.save(e);
+        e = GeneroRepository.save(e);
         FranquiaDTO dto = new FranquiaDTO();
         dto.setNome(e.getNome());
         dto.setId(e.getId());

@@ -13,13 +13,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class FranquiaService {
+public class ItemService {
 
     @Autowired
-    private FranquiaRepository franquiaRepository;
+    private FranquiaRepository itemRepository;
 
     public List<FranquiaDTO> getAll() {
-        return franquiaRepository.findAll().stream().map(fr -> {
+        return itemRepository.findAll().stream().map(fr -> {
             FranquiaDTO dto = new FranquiaDTO();
             dto.setId(fr.getId());
             dto.setNome(fr.getNome());
@@ -30,11 +30,11 @@ public class FranquiaService {
     public void save(FranquiaPayloadDTO input) {
         FranquiaEntity newEntity = new FranquiaEntity();
         newEntity.setNome(input.getNome());
-        franquiaRepository.save(newEntity);
+        itemRepository.save(newEntity);
     }
 
     public FranquiaDTO getById(Long id) {
-        FranquiaEntity e = franquiaRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Franquia não encontrada!"));
+        FranquiaEntity e = itemRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Item não encontrada!"));
         FranquiaDTO dto = new FranquiaDTO();
         dto.setId(e.getId());
         dto.setNome(e.getNome());
@@ -42,13 +42,13 @@ public class FranquiaService {
     }
 
     public void delete(Long id) {
-        franquiaRepository.deleteById(id);
+        itemRepository.deleteById(id);
     }
 
     public FranquiaDTO update(Long id, String novoNome) {
-        FranquiaEntity e = franquiaRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Franquia não encontrada!"));
+        FranquiaEntity e = itemRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Item não encontrada!"));
         e.setNome(novoNome);
-        e = franquiaRepository.save(e);
+        e = itemRepository.save(e);
         FranquiaDTO dto = new FranquiaDTO();
         dto.setNome(e.getNome());
         dto.setId(e.getId());
